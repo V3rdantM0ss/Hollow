@@ -60,7 +60,7 @@ std::string Hollow::getProjectInfo() const {
 void Hollow::logSystemInfo() {
 	if (!internalHollow)
 		return;
-	Aurora& aurora = internalHollow->getAurora();
+	const Aurora& aurora = internalHollow->getAurora();
 	aurora.system("=== System Information ===");
 #ifdef _WIN32
 	OSVERSIONINFOEX osvi; ZeroMemory(&osvi, sizeof(OSVERSIONINFOEX)); osvi.dwOSVersionInfoSize = sizeof(

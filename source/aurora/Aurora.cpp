@@ -68,7 +68,7 @@ Color Aurora::getLevelColor(const LogLevel level) {
 	case LogLevel::WARNING: {
 		return Color(255, 255, 0);
 	}
-	case LogLevel::ERROR: {
+	case LogLevel::ERR: {
 		return Color(255, 0, 0);
 	}
 	case LogLevel::FATAL: {
@@ -111,7 +111,7 @@ std::string Aurora::formatMessage(const LogLevel level, const std::string& messa
 		levelName = "WARNING";
 		break;
 	}
-	case LogLevel::ERROR: {
+	case LogLevel::ERR: {
 		levelName = "ERROR";
 		break;
 	}
@@ -135,7 +135,7 @@ std::string Aurora::formatMessage(const LogLevel level, const std::string& messa
 	return oss.str();
 }
 
-void Aurora::log(LogLevel level, const std::string& message) const {
+void Aurora::log(const LogLevel level, const std::string& message) const {
 	if (shouldLog(level)) {
 		std::cout << formatMessage(level, message) << std::endl;
 	}
@@ -172,8 +172,8 @@ void Aurora::warning(const std::string& message) const {
 }
 
 void Aurora::error(const std::string& message) const {
-	if (shouldLog(LogLevel::ERROR)) {
-		log(LogLevel::ERROR, message);
+	if (shouldLog(LogLevel::ERR)) {
+		log(LogLevel::ERR, message);
 	}
 }
 
