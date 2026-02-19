@@ -12,9 +12,31 @@
 #include <fstream>
 #include "Hollow.hpp"
 #include "Aurora.hpp"
+#ifdef _WIN32
+#include <windows.h>
+#endif
 LogLevel Aurora::globalMinLevel = LogLevel::SYSTEM;
-
+bool Aurora::systemInfoLogged = false;
+#ifdef _WIN32
+static bool windowsANSIEnabled = false;static void enableWindowsANSI() {
+	if (!windowsANSIEnabled) {
+		HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+		if (hOut != INVALID_HANDLE_VALUE) {
+			DWORD dwMode = 0;
+			if (GetConsoleMode(hOut, &dwMode)) {
+				dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+				if (SetConsoleMode(hOut, dwMode)) {
+					windowsANSIEnabled = true;
+				}
+			}
+		}
+	}
+}
+#endif
 Aurora::Aurora(const Hollow& hollow) : hollow(hollow) {
+#ifdef _WIN32
+	enableWindowsANSI();
+#endif
 }
 
 void Aurora::setGlobalMinLevel(const LogLevel level) {
@@ -102,8 +124,8 @@ std::string Aurora::formatMessage(const LogLevel level, const std::string& messa
 		break;
 	}
 	}
-	Color levelColor = getLevelColor(level);
-	Color projectColor = hollow.getProjectColor();
+	const Color levelColor = getLevelColor(level);
+	const Color projectColor = hollow.getProjectColor();
 	std::ostringstream oss;
 	oss << levelColor.toAnsiForeground() << "[" << getCurrentTimestamp() << "]";
 	oss << projectColor.toAnsiForeground() << "[" << hollow.getProjectInfo() << "]";

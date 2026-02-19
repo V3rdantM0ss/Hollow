@@ -7,14 +7,10 @@
  * Code Style: Import style.xml for JetBrains IDE formatting
  */
 #include <iostream>
-#include "Color.hpp"
 #include "Hollow.hpp"
-#include "Version.hpp"
 
 int main() {
-	const Version v(0, 1, 0, 0, ReleaseType::ALPHA);
-	const Hollow hollow(v, "Hollow", Color(150, 50, 150));
-	const Aurora& hollowAurora = hollow.getAurora();
+	const Aurora& hollowAurora = Hollow::getInternalHollow().getAurora();
 	Aurora::setGlobalMinLevel(LogLevel::TRACE);
 	hollowAurora.trace("Uhhh tracing stuff ig?");
 	hollowAurora.debug("Wawa! A spooder :3 May i keep it?");
