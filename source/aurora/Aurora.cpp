@@ -69,7 +69,7 @@ namespace hollow {
 			case LogLevel::WARNING: {
 				return Color(255, 255, 0);
 			}
-			case LogLevel::ERROR: {
+			case LogLevel::ERR: {
 				return Color(255, 0, 0);
 			}
 			case LogLevel::FATAL: {
@@ -112,7 +112,7 @@ namespace hollow {
 				levelName = "WARNING";
 				break;
 			}
-			case LogLevel::ERROR: {
+			case LogLevel::ERR: {
 				levelName = "ERROR";
 				break;
 			}
@@ -173,8 +173,8 @@ namespace hollow {
 	}
 
 	void Aurora::error(const std::string& message) const {
-		if (shouldLog(LogLevel::ERROR)) {
-			log(LogLevel::ERROR, message);
+		if (shouldLog(LogLevel::ERR)) {
+			log(LogLevel::ERR, message);
 		}
 	}
 

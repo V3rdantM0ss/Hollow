@@ -20,7 +20,7 @@ namespace hollow {
 		SYSTEM,
 		INFO,
 		WARNING,
-		ERROR,
+		ERR,
 		FATAL
 	};
 

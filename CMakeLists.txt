@@ -8,7 +8,6 @@ add_library(Hollow STATIC
         source/Version.cpp
         source/Color.cpp
         source/aurora/Aurora.cpp)
-
 target_include_directories(Hollow PUBLIC include include/aurora)
 
 
