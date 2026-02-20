@@ -8,17 +8,16 @@
  */
 #include <iostream>
 #include "Hollow.hpp"
-using namespace hollow;
 
 int main() {
-	const Version testVersion = Hollow::getInternalHollow().getVersion();
-	const Color testColor(255, 255, 255);
+	const hollow::Version testVersion = hollow::Hollow::getInternalHollow().getVersion();
+	const hollow::Color testColor(255, 255, 255);
 	const std::string testName = "Test";
-	const Hollow testHollow(testVersion, testName, testColor);
-	const Aurora testAurora = testHollow.getAurora();
-	const Hollow teeeest2(testVersion, "Teeeeeee2", testColor);
-	const Aurora testAuroraTWO = teeeest2.getAurora();
-	Aurora::setGlobalMinLevel(LogLevel::TRACE);
+	const hollow::Hollow testHollow(testVersion, testName, testColor);
+	const hollow::Aurora testAurora = testHollow.getAurora();
+	const hollow::Hollow teeeest2(testVersion, "Teeeeeee2", testColor);
+	const hollow::Aurora testAuroraTWO = teeeest2.getAurora();
+	hollow::Aurora::setGlobalMinLevel(hollow::LogLevel::TRACE);
 	testAurora.trace("Uhhh tracing stuff ig?");
 	testAurora.debug("Wawa! A spooder :3 May i keep it?");
 	testAuroraTWO.system("COOKIESSS GIMME!");

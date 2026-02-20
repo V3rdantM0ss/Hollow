@@ -11,8 +11,6 @@
 #include <iomanip>
 #include "Color.hpp"
 
-using hollow::Color;
-
 namespace hollow {
 	class Hollow;
 
