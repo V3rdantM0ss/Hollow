@@ -16,7 +16,7 @@
 #include <sys/utsname.h>
 #endif
 namespace hollow {
-	const Version hollowVersion(0, 1, 2, 0, ReleaseType::STABLE);
+	const Version hollowVersion(0, 1, 3, 0, ReleaseType::STABLE);
 	const std::string hollowName = "Hollow";
 	const Color hollowColor(143, 0, 255);
 	static const Hollow internalHollow(hollowVersion, hollowName, hollowColor);
