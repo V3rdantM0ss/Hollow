@@ -11,23 +11,27 @@
 #include "Color.hpp"
 #include "aurora/Aurora.hpp"
 #include <string>
+using hollow::Hollow;
+using hollow::Aurora;
+using hollow::LogLevel;
 
-class Hollow {
-private:
-	const Version version;
-	const std::string projectName;
-	Color projectColor;
-	mutable Aurora aurora;
-	static const Hollow* internalHollow;
-	static void logSystemInfo();
+namespace hollow {
+	class Hollow {
+	private:
+		const Version version;
+		const std::string projectName;
+		Color projectColor;
+		mutable Aurora aurora;
+		static const Hollow* hollow;
 
-public:
-	Hollow(const Version& version, std::string projectName, const Color& projectColor);
-	~Hollow();
-	[[nodiscard]] const Version& getVersion() const;
-	[[nodiscard]] const std::string& getProjectName() const;
-	[[nodiscard]] const Color& getProjectColor() const;
-	[[nodiscard]] Aurora& getAurora() const;
-	[[nodiscard]] std::string getProjectInfo() const;
-	static Hollow& getInternalHollow();
-};
+	public:
+		Hollow(const Version& version, std::string projectName, const Color& projectColor);
+		[[nodiscard]] const Version& getVersion() const;
+		[[nodiscard]] const std::string& getProjectName() const;
+		[[nodiscard]] const Color& getProjectColor() const;
+		[[nodiscard]] Aurora& getAurora() const;
+		[[nodiscard]] std::string getProjectInfo() const;
+		static Hollow& getInternalHollow();
+		static void logSystemInfo();
+	};
+}

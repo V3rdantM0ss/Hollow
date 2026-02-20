@@ -9,39 +9,44 @@
 #pragma once
 #include <string>
 #include <iomanip>
-#include "../Color.hpp"
-class Hollow;
+#include "Color.hpp"
 
-enum class LogLevel {
-	TRACE,
-	DEBUG,
-	SYSTEM,
-	INFO,
-	WARNING,
-	ERR,
-	FATAL
-};
+using hollow::Color;
 
-class Aurora {
-	const Hollow& hollow;
-	static LogLevel globalMinLevel;
-	static bool systemInfoLogged;
-	static Color getLevelColor(LogLevel level);
-	static std::string getCurrentTimestamp();
-	[[nodiscard]] std::string formatMessage(LogLevel level, const std::string& message) const;
+namespace hollow {
+	class Hollow;
 
-public:
-	explicit Aurora(const Hollow& hollow);
-	static void setGlobalMinLevel(LogLevel level);
-	static LogLevel getGlobalMinLevel();
-	static bool shouldLog(LogLevel level);
-	static void logSystemInfo(const Hollow& hollow);
-	void log(LogLevel level, const std::string& message) const;
-	void trace(const std::string& message) const;
-	void debug(const std::string& message) const;
-	void system(const std::string& message) const;
-	void info(const std::string& message) const;
-	void warning(const std::string& message) const;
-	void error(const std::string& message) const;
-	void fatal(const std::string& message) const;
-};
+	enum class LogLevel {
+		TRACE,
+		DEBUG,
+		SYSTEM,
+		INFO,
+		WARNING,
+		ERR,
+		FATAL
+	};
+
+	class Aurora {
+		const Hollow& hollow;
+		static LogLevel globalMinLevel;
+		static bool systemInfoLogged;
+		static Color getLevelColor(LogLevel level);
+		static std::string getCurrentTimestamp();
+		[[nodiscard]] std::string formatMessage(LogLevel level, const std::string& message) const;
+
+	public:
+		explicit Aurora(const Hollow& hollow);
+		static void setGlobalMinLevel(LogLevel level);
+		static LogLevel getGlobalMinLevel();
+		static bool shouldLog(LogLevel level);
+		static void logSystemInfo(const Hollow& hollow);
+		void log(LogLevel level, const std::string& message) const;
+		void trace(const std::string& message) const;
+		void debug(const std::string& message) const;
+		void system(const std::string& message) const;
+		void info(const std::string& message) const;
+		void warning(const std::string& message) const;
+		void error(const std::string& message) const;
+		void fatal(const std::string& message) const;
+	};
+}

@@ -10,14 +10,20 @@
 #include "Hollow.hpp"
 
 int main() {
-	const Aurora& hollowAurora = Hollow::getInternalHollow().getAurora();
+	const hollow::Version testVersion = Hollow::getInternalHollow().getVersion();
+	const Color testColor(255, 255, 255);
+	const std::string testName = "Test";
+	const hollow::Hollow testHollow(testVersion, testName, testColor);
+	const hollow::Aurora testAurora = testHollow.getAurora();
+	const hollow::Hollow teeeest2(testVersion, "Teeeeeee2", testColor);
+	const hollow::Aurora testAuroraTWO = teeeest2.getAurora();
 	Aurora::setGlobalMinLevel(LogLevel::TRACE);
-	hollowAurora.trace("Uhhh tracing stuff ig?");
-	hollowAurora.debug("Wawa! A spooder :3 May i keep it?");
-	hollowAurora.system("COOKIESSS GIMME!");
-	hollowAurora.info("Wawa just wanted to inform you that i request a coffee");
-	hollowAurora.warning("I didnt have my coffee yet im going to die");
-	hollowAurora.error("*goo.exe stopped working*");
-	hollowAurora.fatal("*KLNJHRLKJWNBJKRNOPONBÖJWQLNJBLWÖBJQ RÖLJBWR*");
+	testAurora.trace("Uhhh tracing stuff ig?");
+	testAurora.debug("Wawa! A spooder :3 May i keep it?");
+	testAuroraTWO.system("COOKIESSS GIMME!");
+	testAurora.info("Wawa just wanted to inform you that i request a coffee");
+	testAurora.warning("I didnt have my coffee yet im going to die");
+	testAuroraTWO.error("*goo.exe stopped working*");
+	testAurora.fatal("*KLNJHRLKJWNBJKRNOPONBÖJWQLNJBLWÖBJQ RÖLJBWR*");
 	return 0;
 }
