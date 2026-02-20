@@ -8,7 +8,6 @@
  */
 #include "Version.hpp"
 #include <sstream>
-using hollow::Version;
 
 namespace hollow {
 	int Version::getMajor() const {

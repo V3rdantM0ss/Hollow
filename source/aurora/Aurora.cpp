@@ -12,8 +12,6 @@
 #include <fstream>
 #include "Hollow.hpp"
 #include "Aurora.hpp"
-using hollow::Hollow;
-using hollow::Aurora;
 #ifdef _WIN32
 #include <windows.h>
 #endif

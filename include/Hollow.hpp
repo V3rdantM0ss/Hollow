@@ -11,9 +11,6 @@
 #include "Color.hpp"
 #include "aurora/Aurora.hpp"
 #include <string>
-using hollow::Hollow;
-using hollow::Aurora;
-using hollow::LogLevel;
 
 namespace hollow {
 	class Hollow {
