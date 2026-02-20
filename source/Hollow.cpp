@@ -16,7 +16,7 @@
 #include <sys/utsname.h>
 #endif
 namespace hollow {
-	const Version hollowVersion(0, 1, 0, 0, ReleaseType::ALPHA);
+	const Version hollowVersion(0, 1, 0, 0, ReleaseType::STABLE);
 	const std::string hollowName = "Hollow";
 	const Color hollowColor(143, 0, 255);
 	static const Hollow internalHollow(hollowVersion, hollowName, hollowColor);
@@ -55,19 +55,19 @@ namespace hollow {
 	void Hollow::logSystemInfo() {
 		const Aurora& aurora = hollow->getAurora();
 		aurora.system("=== System Information ===");
-#ifdef _WIN32
+		#ifdef _WIN32
 		OSVERSIONINFOEX osvi; ZeroMemory(&osvi, sizeof(OSVERSIONINFOEX)); osvi.dwOSVersionInfoSize = sizeof(
 			OSVERSIONINFOEX); if (GetVersionEx((OSVERSIONINFO*)&osvi)) {
 			aurora.system(
 				"Operating System: Windows " + std::to_string(osvi.dwMajorVersion) + "." + std::to_string(
 					osvi.dwMinorVersion));
 		}
-#else
+		#else
 		utsname unameData{};
 		if (uname(&unameData) == 0) {
 			aurora.system("Operating System: " + std::string(unameData.sysname) + " " + std::string(unameData.release));
 		}
-#endif
+		#endif
 		const char* user = std::getenv("USER");
 		if (const char* home = std::getenv("HOME"); user && home) {
 			aurora.system("User: " + std::string(user) + " | Home: " + std::string(home));

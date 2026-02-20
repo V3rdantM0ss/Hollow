@@ -18,7 +18,7 @@
 namespace hollow {
 	LogLevel Aurora::globalMinLevel = LogLevel::SYSTEM;
 	bool Aurora::systemInfoLogged = false;
-#ifdef _WIN32
+	#ifdef _WIN32
 	static bool windowsANSIEnabled = false;static void enableWindowsANSI() {
 		if (!windowsANSIEnabled) {
 			HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -33,11 +33,11 @@ namespace hollow {
 			}
 		}
 	}
-#endif
+	#endif
 	Aurora::Aurora(const Hollow& hollow) : hollow(hollow) {
-#ifdef _WIN32
+		#ifdef _WIN32
 		enableWindowsANSI();
-#endif
+		#endif
 	}
 
 	void Aurora::setGlobalMinLevel(const LogLevel level) {
@@ -54,30 +54,30 @@ namespace hollow {
 
 	Color Aurora::getLevelColor(const LogLevel level) {
 		switch (level) {
-		case LogLevel::TRACE: {
-			return Color(0, 255, 255);
-		}
-		case LogLevel::DEBUG: {
-			return Color(255, 255, 255);
-		}
-		case LogLevel::SYSTEM: {
-			return Color(0, 255, 0);
-		}
-		case LogLevel::INFO: {
-			return Color(0, 0, 255);
-		}
-		case LogLevel::WARNING: {
-			return Color(255, 255, 0);
-		}
-		case LogLevel::ERR: {
-			return Color(255, 0, 0);
-		}
-		case LogLevel::FATAL: {
-			return Color(255, 0, 255);
-		}
-		default: {
-			return Color(255, 255, 255);
-		}
+			case LogLevel::TRACE: {
+				return Color(0, 255, 255);
+			}
+			case LogLevel::DEBUG: {
+				return Color(255, 255, 255);
+			}
+			case LogLevel::SYSTEM: {
+				return Color(0, 255, 0);
+			}
+			case LogLevel::INFO: {
+				return Color(0, 0, 255);
+			}
+			case LogLevel::WARNING: {
+				return Color(255, 255, 0);
+			}
+			case LogLevel::ERROR: {
+				return Color(255, 0, 0);
+			}
+			case LogLevel::FATAL: {
+				return Color(255, 0, 255);
+			}
+			default: {
+				return Color(255, 255, 255);
+			}
 		}
 	}
 
@@ -92,38 +92,38 @@ namespace hollow {
 	std::string Aurora::formatMessage(const LogLevel level, const std::string& message) const {
 		std::string levelName;
 		switch (level) {
-		case LogLevel::TRACE: {
-			levelName = "TRACE";
-			break;
-		}
-		case LogLevel::DEBUG: {
-			levelName = "DEBUG";
-			break;
-		}
-		case LogLevel::SYSTEM: {
-			levelName = "SYSTEM";
-			break;
-		}
-		case LogLevel::INFO: {
-			levelName = "INFO";
-			break;
-		}
-		case LogLevel::WARNING: {
-			levelName = "WARNING";
-			break;
-		}
-		case LogLevel::ERR: {
-			levelName = "ERROR";
-			break;
-		}
-		case LogLevel::FATAL: {
-			levelName = "FATAL";
-			break;
-		}
-		default: {
-			levelName = "UNKNOWN";
-			break;
-		}
+			case LogLevel::TRACE: {
+				levelName = "TRACE";
+				break;
+			}
+			case LogLevel::DEBUG: {
+				levelName = "DEBUG";
+				break;
+			}
+			case LogLevel::SYSTEM: {
+				levelName = "SYSTEM";
+				break;
+			}
+			case LogLevel::INFO: {
+				levelName = "INFO";
+				break;
+			}
+			case LogLevel::WARNING: {
+				levelName = "WARNING";
+				break;
+			}
+			case LogLevel::ERROR: {
+				levelName = "ERROR";
+				break;
+			}
+			case LogLevel::FATAL: {
+				levelName = "FATAL";
+				break;
+			}
+			default: {
+				levelName = "UNKNOWN";
+				break;
+			}
 		}
 		const Color levelColor = getLevelColor(level);
 		const Color projectColor = hollow.getProjectColor();
@@ -173,8 +173,8 @@ namespace hollow {
 	}
 
 	void Aurora::error(const std::string& message) const {
-		if (shouldLog(LogLevel::ERR)) {
-			log(LogLevel::ERR, message);
+		if (shouldLog(LogLevel::ERROR)) {
+			log(LogLevel::ERROR, message);
 		}
 	}
 

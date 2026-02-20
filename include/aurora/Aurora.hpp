@@ -20,7 +20,7 @@ namespace hollow {
 		SYSTEM,
 		INFO,
 		WARNING,
-		ERR,
+		ERROR,
 		FATAL
 	};
 
@@ -32,19 +32,18 @@ namespace hollow {
 		static std::string getCurrentTimestamp();
 		[[nodiscard]] std::string formatMessage(LogLevel level, const std::string& message) const;
 
-	public:
-		explicit Aurora(const Hollow& hollow);
-		static void setGlobalMinLevel(LogLevel level);
-		static LogLevel getGlobalMinLevel();
-		static bool shouldLog(LogLevel level);
-		static void logSystemInfo(const Hollow& hollow);
-		void log(LogLevel level, const std::string& message) const;
-		void trace(const std::string& message) const;
-		void debug(const std::string& message) const;
-		void system(const std::string& message) const;
-		void info(const std::string& message) const;
-		void warning(const std::string& message) const;
-		void error(const std::string& message) const;
-		void fatal(const std::string& message) const;
+		public:
+			explicit Aurora(const Hollow& hollow);
+			static void setGlobalMinLevel(LogLevel level);
+			static LogLevel getGlobalMinLevel();
+			static bool shouldLog(LogLevel level);
+			void log(LogLevel level, const std::string& message) const;
+			void trace(const std::string& message) const;
+			void debug(const std::string& message) const;
+			void system(const std::string& message) const;
+			void info(const std::string& message) const;
+			void warning(const std::string& message) const;
+			void error(const std::string& message) const;
+			void fatal(const std::string& message) const;
 	};
 }

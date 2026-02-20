@@ -34,15 +34,15 @@ namespace hollow {
 		std::ostringstream oss;
 		oss << major << "." << minor << "." << patch << "." << build;
 		switch (releaseType) {
-		case ReleaseType::STABLE:
-			oss << "r";
-			break;
-		case ReleaseType::BETA:
-			oss << "b";
-			break;
-		case ReleaseType::ALPHA:
-			oss << "a";
-			break;
+			case ReleaseType::STABLE:
+				oss << "";
+				break;
+			case ReleaseType::BETA:
+				oss << "b";
+				break;
+			case ReleaseType::ALPHA:
+				oss << "a";
+				break;
 		}
 		return oss.str();
 	}
@@ -51,15 +51,15 @@ namespace hollow {
 		std::ostringstream oss;
 		oss << major << "." << minor << "." << patch;
 		switch (releaseType) {
-		case ReleaseType::STABLE:
-			oss << "r";
-			break;
-		case ReleaseType::BETA:
-			oss << "b";
-			break;
-		case ReleaseType::ALPHA:
-			oss << "a";
-			break;
+			case ReleaseType::STABLE:
+				oss << "r";
+				break;
+			case ReleaseType::BETA:
+				oss << "b";
+				break;
+			case ReleaseType::ALPHA:
+				oss << "a";
+				break;
 		}
 		return oss.str();
 	}
