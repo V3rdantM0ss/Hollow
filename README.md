@@ -18,18 +18,18 @@ Note: This library is primarily intended for personal use and may not be suitabl
 #include "Hollow.hpp"
 
 int main() {
-    // Make Version constant with MAJOR, MINOR, PATCH, BUILD and relase type+
+    // Make Version constant with MAJOR, MINOR, PATCH, BUILD and release type
     // NOTE: version should be called <projectName>Version
-	const Version hollowVersion(0, 0, 0, 0, ReleaseType::ALPHA);
+    const hollow::Version hollowVersion(0, 0, 0, 0, hollow::ReleaseType::ALPHA);
     // Create Hollow instance and give it the version reference
-    Hollow hollow(
+    hollow::Hollow hollow(
         hollowVersion,
         "MyProject",
-        Color(255, 100, 100)
+        hollow::Color(255, 100, 100)
     );
     
     // Get Aurora logger and log messages
-    Aurora& logger = hollow.getAurora();
+    const hollow::Aurora& logger = hollow.getAurora();
     logger.info("Hello from Hollow!");
     logger.warning("This is a warning");
     logger.error("Something went wrong");
