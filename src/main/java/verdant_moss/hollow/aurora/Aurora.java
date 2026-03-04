@@ -18,6 +18,30 @@ public class Aurora {
 		this.color = color;
 	}
 	
+	public void debug(Object debug) {
+		log(LoggingLevel.DEBUG, debug);
+	}
+	
+	public void error(Object error) {
+		log(LoggingLevel.ERROR, error);
+	}
+	
+	public void fatal(Object fatal) {
+		log(LoggingLevel.FATAL, fatal);
+	}
+	
+	public void info(Object info) {
+		log(LoggingLevel.INFO, info);
+	}
+	
+	public void system(Object system) {
+		log(LoggingLevel.SYSTEM, system);
+	}
+	
+	public void trace(Object trace) {
+		log(LoggingLevel.TRACE, trace);
+	}
+	
 	public void log(LoggingLevel level, Object message) {
 		if(MinLevel.ordinal() > level.ordinal()) {
 			return;
@@ -26,9 +50,7 @@ public class Aurora {
 		String projectName = getProjectNameSection();
 		String levelSection = getLevelSection(level);
 		String messageSection = getMessageSection(level, message);
-		StringBuilder messageChunk = new StringBuilder();
-		messageChunk.append(dateTimeSection).append(projectName).append(levelSection).append(": ").append(messageSection);
-		System.out.println(messageChunk);
+		System.out.println(dateTimeSection + projectName + levelSection + ": " + messageSection);
 	}
 	
 	private String getDateTimeSection(LoggingLevel level) {
@@ -47,5 +69,9 @@ public class Aurora {
 	
 	private String getMessageSection(LoggingLevel level, Object message) {
 		return level.toAnsi() + message.toString() + Color.RESET;
+	}
+	
+	public void warning(Object warning) {
+		log(LoggingLevel.WARNING, warning);
 	}
 }
