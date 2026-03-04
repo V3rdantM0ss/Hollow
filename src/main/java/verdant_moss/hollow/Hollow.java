@@ -4,7 +4,7 @@ import verdant_moss.hollow.aurora.Aurora;
 
 public class Hollow {
 	public static final String HOLLOW_NAME = "Hollow";
-	public static final Version HOLLOW_VERSION = new Version(0, 0, 1, 0, ReleaseType.ALPHA);
+	public static final Version HOLLOW_VERSION = new Version(0, 0, 1, 1, ReleaseType.ALPHA);
 	public static final Color HOLLOW_COLOR = new Color(101, 0, 179);
 	public static final Hollow HOLLOW = new Hollow(HOLLOW_NAME, HOLLOW_VERSION, HOLLOW_COLOR);
 	private final String name;
@@ -21,5 +21,17 @@ public class Hollow {
 	
 	public Aurora get_aurora() {
 		return aurora;
+	}
+	
+	public String get_name() {
+		return name;
+	}
+	
+	public Version get_version() {
+		return version;
+	}
+	
+	public Color get_color() {
+		return color;
 	}
 }
