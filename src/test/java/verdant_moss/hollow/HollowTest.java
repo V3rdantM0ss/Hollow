@@ -3,22 +3,24 @@ package verdant_moss.hollow;
 import verdant_moss.hollow.aurora.Aurora;
 import verdant_moss.hollow.aurora.LoggingLevel;
 
+import static verdant_moss.hollow.Hollow.HOLLOW_AURORA;
+
 public class HollowTest {
 	public static void main(String[] args) {
 		Aurora.MinLevel = LoggingLevel.TRACE;
-		Hollow.HOLLOW.get_aurora().log(LoggingLevel.TRACE, "Testing");
-		Hollow.HOLLOW.get_aurora().log(LoggingLevel.DEBUG, "Testing");
-		Hollow.HOLLOW.get_aurora().log(LoggingLevel.SYSTEM, "Testing");
-		Hollow.HOLLOW.get_aurora().log(LoggingLevel.INFO, "Testing");
-		Hollow.HOLLOW.get_aurora().log(LoggingLevel.WARNING, "Testing");
-		Hollow.HOLLOW.get_aurora().log(LoggingLevel.ERROR, "Testing");
-		Hollow.HOLLOW.get_aurora().log(LoggingLevel.FATAL, "Testing");
-		Hollow.HOLLOW.get_aurora().trace("Short Testing");
-		Hollow.HOLLOW.get_aurora().debug("Short Testing");
-		Hollow.HOLLOW.get_aurora().system("Short Testing");
-		Hollow.HOLLOW.get_aurora().info("Short Testing");
-		Hollow.HOLLOW.get_aurora().warning("Short Testing");
-		Hollow.HOLLOW.get_aurora().error("Short Testing");
-		Hollow.HOLLOW.get_aurora().fatal("Short Testing");
+		HOLLOW_AURORA.log(LoggingLevel.TRACE, "Testing");
+		HOLLOW_AURORA.log(LoggingLevel.DEBUG, "Testing");
+		HOLLOW_AURORA.log(LoggingLevel.SYSTEM, "Testing");
+		HOLLOW_AURORA.log(LoggingLevel.INFO, "Testing");
+		HOLLOW_AURORA.log(LoggingLevel.WARNING, "Testing");
+		HOLLOW_AURORA.log(LoggingLevel.ERROR, "Testing");
+		HOLLOW_AURORA.log(LoggingLevel.FATAL, "Testing");
+		HOLLOW_AURORA.trace("Short Testing");
+		HOLLOW_AURORA.debug("Short Testing");
+		HOLLOW_AURORA.system("Short Testing");
+		HOLLOW_AURORA.info("Short Testing");
+		HOLLOW_AURORA.warning("Short Testing");
+		HOLLOW_AURORA.error("Short Testing");
+		HOLLOW_AURORA.fatal("Short Testing");
 	}
 }
