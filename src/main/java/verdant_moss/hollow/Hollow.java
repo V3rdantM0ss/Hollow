@@ -16,7 +16,7 @@ import java.util.Locale;
  */
 public class Hollow {
 	public static final String HOLLOW_NAME = "Hollow";
-	public static final Version HOLLOW_VERSION = new Version(0, 1, 0, 0, ReleaseType.RELEASE);
+	public static final Version HOLLOW_VERSION = new Version(0, 1, 1, 0, ReleaseType.ALPHA);
 	public static final Color HOLLOW_COLOR = new Color(101, 0, 179);
 	public static final Hollow HOLLOW = new Hollow(HOLLOW_NAME, HOLLOW_VERSION, HOLLOW_COLOR);
 	public static final Aurora HOLLOW_AURORA = HOLLOW.get_aurora();
@@ -32,9 +32,11 @@ public class Hollow {
 		this.aurora = new Aurora(name, version, color);
 	}
 	
-	/**
-	 * Logs system information at startup.
-	 */
+	@Override
+	public String toString() {
+		return "Hollow{" + "name='" + name + '\'' + ", version=" + version + ", color=" + color + ", aurora=" + aurora + '}';
+	}
+	
 	private static void logStartupInfo() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH.mm.ss-dd.MM.yyyy");
 		String timestamp = LocalDateTime.now().format(formatter);

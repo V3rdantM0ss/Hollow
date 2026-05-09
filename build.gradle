@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'verdant_moss.hollow'
-version = '0.1.0.0-RELEASE'
+version = '0.1.1.0-ALPHA'
 
 repositories {
 	mavenCentral()

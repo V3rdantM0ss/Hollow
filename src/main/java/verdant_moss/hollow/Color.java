@@ -35,6 +35,11 @@ public class Color {
 		this(red, green, blue, 255);
 	}
 	
+	@Override
+	public String toString() {
+		return "Color{" + "red=" + red + ", green=" + green + ", blue=" + blue + ", alpha=" + alpha + '}';
+	}
+	
 	public String toAnsi() {
 		return "\u001B[38;2;" + red + ";" + green + ";" + blue + "m";
 	}
